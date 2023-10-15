@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { HandPalm, Play } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
+import { NewCycleForm } from './components/NewCycleForm'
+import { Countdown } from './components/Countdown'
 
 import {
   CountdownContainer,
@@ -134,6 +136,8 @@ export function Home() {
   return (
     <HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewCycle)}>
+        <NewCycleForm />
+        <Countdown />
         {activeCycle ? (
           <StopCountdownButton onClick={handleInterruptCycle} type="button">
             <HandPalm size={24} />
