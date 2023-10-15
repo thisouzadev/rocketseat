@@ -29,7 +29,7 @@ export function NewCycleForm() {
         id="task"
         list="task-suggestions"
         placeholder="Dê um nome para o seu projeto"
-        disabled={!!activeCycle}
+        // disabled={!!activeCycle}
         {...register('task')}
       />
 
@@ -48,7 +48,7 @@ export function NewCycleForm() {
         step={5}
         min={5}
         max={60}
-        disabled={!!activeCycle}
+        // disabled={!!activeCycle}
         {...register('minutesAmount', { valueAsNumber: true })}
       />
 
