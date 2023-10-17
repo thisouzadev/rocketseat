@@ -2,6 +2,7 @@ import http from 'node:http'
 import { json } from './middlewares/json.js'
 import { routes } from './routes.js'
 import { Database } from './database.js'
+import { extractQueryParams } from './utils/extract-query-params.js'
 
 const database = new Database()
 
