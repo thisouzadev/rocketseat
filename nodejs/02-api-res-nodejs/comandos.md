@@ -8,3 +8,5 @@
 npm install sqlite3 knex
 
  npx tsx src/server.ts
+
+ npm run knex -- migrate:latest
