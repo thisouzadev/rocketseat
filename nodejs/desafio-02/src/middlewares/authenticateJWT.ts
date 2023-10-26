@@ -31,12 +31,9 @@ export async function authenticateJWT(
       return
     }
 
-    // Verifique se 'userId' existe na carga útil decodificada
     if (decoded.userId && typeof decoded.userId === 'string') {
-      // Defina o campo 'user_id' na solicitação
       request.user_id = decoded.userId
     } else {
-      // Se 'userId' estiver ausente ou não for uma string, trate o erro
       reply.status(403).send({ message: 'Token inválido' })
     }
   })
