@@ -20,3 +20,5 @@ Design dirigido à domínio
 - Subdomínios (Bounded Contexts)
 - Entidades
 - Casos de uso
+
+https://efficient-sloth-d85.notion.site/Gloss-rio-DDD-3a81b4df36d348a299ccbc53f38a1665
