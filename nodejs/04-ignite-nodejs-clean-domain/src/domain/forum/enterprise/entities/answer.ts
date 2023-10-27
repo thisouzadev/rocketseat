@@ -51,10 +51,17 @@ export class Answer extends Entity<AnswerProps> {
     const answer = new Answer(
       {
         ...props,
-        createdAt: new Date(),
+        // attachments: props.attachments ?? new AnswerAttachmentList(),
+        createdAt: props.createdAt ?? new Date(),
       },
       id,
     )
+
+    // const isNewAnswer = !id
+
+    // if (isNewAnswer) {
+    //   answer.addDomainEvent(new AnswerCreatedEvent(answer))
+    // }
 
     return answer
   }
