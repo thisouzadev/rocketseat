@@ -18,9 +18,8 @@ describe('Create Answer', () => {
       instructorId: '1',
       content: 'Conteúdo da resposta',
     })
-    console.log(inMemoryAnswersRepository.items[0])
 
     expect(answer.id).toBeTruthy()
-    expect(inMemoryAnswersRepository.items[0]).toEqual(answer.id)
+    expect(inMemoryAnswersRepository.items[0].id).toEqual(answer.id)
   })
 })
