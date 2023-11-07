@@ -1,5 +1,5 @@
-import { UserPayload } from 'src/auth/jwt.strategy';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { UserPayload } from '@/auth/jwt.strategy';
+import { PrismaService } from '@/prisma/prisma.service';
 import { z } from 'zod';
 declare const createQuestionBodySchema: z.ZodObject<{
     title: z.ZodString;

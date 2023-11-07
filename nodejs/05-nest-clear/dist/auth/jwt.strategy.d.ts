@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { Strategy } from 'passport-jwt';
-import { Env } from 'src/env';
+import { Env } from '@/env';
 import { z } from 'zod';
 declare const tokenPayloadSchema: z.ZodObject<{
     sub: z.ZodString;

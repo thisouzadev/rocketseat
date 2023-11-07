@@ -1,5 +1,5 @@
 import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '@/prisma/prisma.service';
 import { z } from 'zod';
 declare const authenticateBodySchema: z.ZodObject<{
     email: z.ZodString;
