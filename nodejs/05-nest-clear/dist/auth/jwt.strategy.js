@@ -15,7 +15,7 @@ const config_1 = require("@nestjs/config");
 const passport_1 = require("@nestjs/passport");
 const passport_jwt_1 = require("passport-jwt");
 const zod_1 = require("zod");
-const tokenSchema = zod_1.z.object({
+const tokenPayloadSchema = zod_1.z.object({
     sub: zod_1.z.string().uuid(),
 });
 let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy) {
@@ -28,7 +28,7 @@ let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(pas
         });
     }
     async validate(payload) {
-        return tokenSchema.parse(payload);
+        return tokenPayloadSchema.parse(payload);
     }
 };
 exports.JwtStrategy = JwtStrategy;

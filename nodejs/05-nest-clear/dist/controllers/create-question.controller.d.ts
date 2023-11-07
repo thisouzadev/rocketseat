@@ -1,4 +1,5 @@
+import { UserPayload } from 'src/auth/jwt.strategy';
 export declare class CreateQuestionController {
     constructor();
-    handle(): Promise<string>;
+    handle(user: UserPayload): Promise<string>;
 }

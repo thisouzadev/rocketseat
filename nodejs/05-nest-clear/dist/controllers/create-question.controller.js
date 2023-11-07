@@ -8,21 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateQuestionController = void 0;
 const common_1 = require("@nestjs/common");
+const current_user_decorator_1 = require("../auth/current-user-decorator");
 const jwt_auth_guard_1 = require("../auth/jwt-auth.guard");
 let CreateQuestionController = class CreateQuestionController {
     constructor() { }
-    async handle() {
+    async handle(user) {
+        console.log(user.sub);
         return 'ok';
     }
 };
 exports.CreateQuestionController = CreateQuestionController;
 __decorate([
     (0, common_1.Post)(),
+    __param(0, (0, current_user_decorator_1.CurrentUser)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], CreateQuestionController.prototype, "handle", null);
 exports.CreateQuestionController = CreateQuestionController = __decorate([
