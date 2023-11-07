@@ -1,4 +1,4 @@
-import { AppModule } from '@/infra/http/http.module'
+import { AppModule } from '@/infra/app.module'
 import { PrismaService } from '@/infra/prisma/prisma.service'
 import { INestApplication } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
