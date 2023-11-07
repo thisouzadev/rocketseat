@@ -5,13 +5,13 @@ declare const createAccountBodySchema: z.ZodObject<{
     email: z.ZodString;
     password: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    name: string;
     email: string;
     password: string;
+    name: string;
 }, {
-    name: string;
     email: string;
     password: string;
+    name: string;
 }>;
 type CreateAccountBodySchema = z.infer<typeof createAccountBodySchema>;
 export declare class CreateAccountController {

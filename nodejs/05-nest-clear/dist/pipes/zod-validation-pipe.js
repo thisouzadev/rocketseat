@@ -10,7 +10,7 @@ class ZodValidationPipe {
     }
     transform(value) {
         try {
-            this.schema.parse(value);
+            return this.schema.parse(value);
         }
         catch (error) {
             if (error instanceof zod_1.ZodError) {

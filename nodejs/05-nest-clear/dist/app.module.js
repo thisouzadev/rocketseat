@@ -15,6 +15,7 @@ const env_1 = require("./env");
 const auth_module_1 = require("./auth/auth.module");
 const authenticate_controller_1 = require("./controllers/authenticate.controller");
 const create_question_controller_1 = require("./controllers/create-question.controller");
+const fetch_recent_questions_controller_1 = require("./controllers/fetch-recent-questions.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -31,6 +32,7 @@ exports.AppModule = AppModule = __decorate([
             create_account_controller_1.CreateAccountController,
             authenticate_controller_1.AuthenticateController,
             create_question_controller_1.CreateQuestionController,
+            fetch_recent_questions_controller_1.FetchRecentQuestionsController,
         ],
         providers: [prisma_service_1.PrismaService],
     })

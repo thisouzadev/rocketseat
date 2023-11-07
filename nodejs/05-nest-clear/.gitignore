@@ -4,6 +4,8 @@ node_modules
 # Database
 db/*.db
 
+dist
+
 # # Environment
 # .env
 # .env.test
