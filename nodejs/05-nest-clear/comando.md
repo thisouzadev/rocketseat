@@ -1,5 +1,5 @@
+openssl genpkey -algorithm RSA -out private.key -pkeyopt rsa_keygen_bits:2048
 
-openssl genpkey -algorithm RSA -out private_key.pem -aes256 -pkeyopt rsa_keygen_bits:2048
-openssl rsa -pubout -in private_key.pem -out public_key.pem
+openssl rsa -pubout -in private.key -out public.key -outform PEM
 
-base64 example.txt > example_base64.txt
+JWT_PRIVATE_KEY=$(openssl base64 -in private.key -A) && JWT_PUBLIC_KEY=$(openssl base64 -in public.key -A) && echo "JWT_PRIVATE_KEY=\"$JWT_PRIVATE_KEY\"" >> .env && echo "JWT_PUBLIC_KEY=\"$JWT_PUBLIC_KEY\"" >> .env

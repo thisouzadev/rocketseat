@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
+const jwt_strategy_1 = require("./jwt.strategy");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -25,12 +26,14 @@ exports.AuthModule = AuthModule = __decorate([
                     const privateKey = config.get('JWT_PRIVATE_KEY', { infer: true });
                     const publicKey = config.get('JWT_PUBLIC_KEY', { infer: true });
                     return {
+                        signOptions: { algorithm: 'RS256' },
                         privateKey: Buffer.from(privateKey, 'base64'),
                         publicKey: Buffer.from(publicKey, 'base64'),
                     };
                 },
             }),
         ],
+        providers: [jwt_strategy_1.JwtStrategy],
     })
 ], AuthModule);
 //# sourceMappingURL=auth.module.js.map
