@@ -60,8 +60,12 @@ export class PrismaQuestionsRepository implements QuestionsRepository {
     })
   }
 
-  create(question: Question): Promise<void> {
-    throw new Error('Method not implemented.')
+  async create(question: Question): Promise<void> {
+    const data = PrismaQuestionMapper.toPrisma(question)
+
+    await this.prisma.question.create({
+      data,
+    })
   }
 
   async delete(question: Question): Promise<void> {
