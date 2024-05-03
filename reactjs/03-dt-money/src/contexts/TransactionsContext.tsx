@@ -34,15 +34,35 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
   const fetchTransactions = useCallback(async (query?: string) => {
-    const response = await api.get('transactions', {
-      params: {
-        // _sort: 'createdAt',
-        // _order: 'desc',
-        q: query,
-      },
-    })
+    try {
+      const response = await api.get('transactions', {
+        params: {
+          _sort: 'createdAt',
+          // _order: 'desc',
+          // q: query,
+        },
+      })
 
-    setTransactions(response.data)
+      let filteredTransactions = response.data
+      if (query) {
+        filteredTransactions = response.data.filter(
+          (transaction: Transaction) => {
+            return (
+              transaction.category
+                .toLowerCase()
+                .includes(query?.toLowerCase() || '') ||
+              transaction.description
+                .toLowerCase()
+                .includes(query?.toLowerCase() || '')
+            )
+          },
+        )
+      }
+
+      setTransactions(filteredTransactions)
+    } catch (error) {
+      console.error('Erro ao buscar transações:', error)
+    }
   }, [])
 
   const createTransaction = useCallback(
