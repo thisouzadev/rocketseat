@@ -39,25 +39,27 @@ export function OrderTableFilters() {
       },
     })
 
-  function handleFilter({ customerName, orderId, status }: OrderFiltersSchema) {
+  function updateQueryParam(
+    state: URLSearchParams,
+    key: string,
+    value?: string | null,
+  ) {
+    if (value) {
+      state.set(key, value)
+    } else {
+      state.delete(key)
+    }
+  }
+
+  function handleFilter({ orderId, customerName, status }: OrderFiltersSchema) {
+    console.log('OrderId:', orderId)
+    console.log('CustomerName:', customerName)
+    console.log('Status:', status)
+
     setSearchParams((state) => {
-      if (orderId) {
-        state.set('orderId', orderId)
-      } else {
-        state.delete('orderId')
-      }
-
-      if (customerName) {
-        state.set('customerName', customerName)
-      } else {
-        state.delete('customerName')
-      }
-
-      if (status) {
-        state.set('status', status)
-      } else {
-        state.delete('status')
-      }
+      updateQueryParam(state, 'orderId', orderId)
+      updateQueryParam(state, 'customerName', customerName)
+      updateQueryParam(state, 'status', status)
 
       state.set('page', '1')
 
