@@ -52,10 +52,6 @@ export function OrderTableFilters() {
   }
 
   function handleFilter({ orderId, customerName, status }: OrderFiltersSchema) {
-    console.log('OrderId:', orderId)
-    console.log('CustomerName:', customerName)
-    console.log('Status:', status)
-
     setSearchParams((state) => {
       updateQueryParam(state, 'orderId', orderId)
       updateQueryParam(state, 'customerName', customerName)
