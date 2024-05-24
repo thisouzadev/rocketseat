@@ -33,7 +33,8 @@
   },
   "include": [
     "src",
-    "test"
+    "test",
+    "tests/sign-in.e2e-spec.ts"
   ],
   "references": [
     {
