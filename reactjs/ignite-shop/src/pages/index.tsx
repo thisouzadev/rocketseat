@@ -14,6 +14,7 @@ interface HomeProps {
   }[]
 }
 import 'keen-slider/keen-slider.min.css'
+import Link from "next/link"
 export default function Home({ products }: HomeProps) {
   const [sliderRef] = useKeenSlider({
     slides: {
@@ -25,7 +26,10 @@ export default function Home({ products }: HomeProps) {
     <HomeContainer ref={sliderRef} className="keen-slider">
        {products.map(product => {
         return (
-          <Product key={product.id} className="keen-slider__slide">
+          <Link href={`/product/${product.id}`} key={product.id}>
+            <Product
+              className="keen-slider__slide"
+            >
             <Image src={product.imageUrl} width={520} height={480} alt="" />
 
             <footer>
@@ -33,6 +37,7 @@ export default function Home({ products }: HomeProps) {
               <span>{product.price}</span>
             </footer>
           </Product>
+        </Link>
         )
       })}
     </HomeContainer>
@@ -54,7 +59,7 @@ export const  getStaticProps: GetStaticProps  = async () => {
       price: new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
-      }).format(price.unit_amount / 100),
+      }).format(price.unit_amount! / 100),
     }
   })
 
