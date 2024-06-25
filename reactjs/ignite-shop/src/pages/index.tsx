@@ -5,6 +5,9 @@ import { stripe } from "../lib/stripe"
 import { useKeenSlider } from 'keen-slider/react'
 import Stripe from "stripe"
 import { GetStaticProps } from "next"
+import 'keen-slider/keen-slider.min.css'
+import Link from "next/link"
+
 interface HomeProps {
   products: {
     id: string
@@ -13,8 +16,6 @@ interface HomeProps {
     price: string
   }[]
 }
-import 'keen-slider/keen-slider.min.css'
-import Link from "next/link"
 export default function Home({ products }: HomeProps) {
   const [sliderRef] = useKeenSlider({
     slides: {
